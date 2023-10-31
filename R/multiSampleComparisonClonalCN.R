@@ -76,10 +76,10 @@ plotAllClonalCN <- function(samples, name){
 #'
 #' @examples 
 #' 
-multiSampleComparisonClonalCN <- function(listCountMtx, listNormCells = NULL, analysisName = "all", organism = "human" , par_cores = 20, plotTree = TRUE){
+multiSampleComparisonClonalCN <- function(listCountMtx, listNormCells = NULL, analysisName = "all", plotTree = TRUE, ...){
 
   resList <- lapply(names(listCountMtx), function(x) {
-    pipelineCNA(listCountMtx[[x]], norm_cell = listNormCells[[x]], sample = x, SUBCLONES = FALSE, ClonalCN = TRUE, par_cores = par_cores, organism=organism)
+    pipelineCNA(listCountMtx[[x]], norm_cell = listNormCells[[x]], sample = x, ...)
   })
   names(resList) <- names(listCountMtx)
   
